@@ -8,8 +8,29 @@ output:
 
 ## Loading and preprocessing the data
 
-# Read in the dataset from included .zip file from clone
+Reading in the dataset from included .zip file from clone:
+
+```{r}
 activity <- read.csv(unz("activity.zip","activity.csv"), stringsAsFactors=FALSE, header=T, sep=",")
+
+```
+
+Using dplyr to select out the steps column and remove the NA values:
+
+```{r}
+library(dplyr)
+
+steps<-activity%>%
+  select(steps)%>%
+  na.omit
+````
+
+Using hist to graph a histogram of the number of steps:
+
+```{r}
+hist(steps$steps, main="Histogram of Steps", xlab="Steps")
+
+```
 
 
 ## What is mean total number of steps taken per day?
