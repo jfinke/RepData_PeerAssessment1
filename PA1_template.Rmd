@@ -8,6 +8,8 @@ output:
 
 ## Loading and preprocessing the data
 
+# Read in the dataset from included .zip file from clone
+activity <- read.csv(unz("activity.zip","activity.csv"), stringsAsFactors=FALSE, header=T, sep=",")
 
 
 ## What is mean total number of steps taken per day?
