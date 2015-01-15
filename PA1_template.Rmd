@@ -25,6 +25,7 @@ steps<-activity%>%
   na.omit
 ````
 
+## Histogram of steps
 Using hist to graph a histogram of the number of steps:
 
 ```{r}
@@ -34,6 +35,13 @@ hist(steps$steps, main="Histogram of Steps", xlab="Steps")
 
 
 ## What is mean total number of steps taken per day?
+```{r}
+mean(steps$steps)
+```
+## What is the median total number of steps taken per day?
+```{r}
+median(steps$steps)
+```
 
 
 
