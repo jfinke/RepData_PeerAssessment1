@@ -10,34 +10,11 @@ Reading in the dataset from included .zip file from clone:
 activity <- read.csv(unz("activity.zip","activity.csv"), stringsAsFactors=FALSE, header=T, sep=",")
 ```
 
-Using dplyr to select out the steps column and remove the NA values:
+Aggregating steps by date:
 
 
 ```r
-library(dplyr)
-```
-
-```
-## Warning: package 'dplyr' was built under R version 3.1.1
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-## 
-## The following object is masked from 'package:stats':
-## 
-##     filter
-## 
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
-steps<-activity%>%
-  select(steps)%>%
-  na.omit
+steps<-aggregate(steps ~ date, data=activity, sum)
 ```
 
 ## Histogram of steps
@@ -58,7 +35,7 @@ mean(steps$steps)
 ```
 
 ```
-## [1] 37.3826
+## [1] 10766.19
 ```
 ## What is the median total number of steps taken per day?
 
@@ -67,7 +44,7 @@ median(steps$steps)
 ```
 
 ```
-## [1] 0
+## [1] 10765
 ```
 
 

@@ -15,14 +15,10 @@ activity <- read.csv(unz("activity.zip","activity.csv"), stringsAsFactors=FALSE,
 
 ```
 
-Using dplyr to select out the steps column and remove the NA values:
+Aggregating steps by date:
 
 ```{r}
-library(dplyr)
-
-steps<-activity%>%
-  select(steps)%>%
-  na.omit
+steps<-aggregate(steps ~ date, data=activity, sum)
 ````
 
 ## Histogram of steps
