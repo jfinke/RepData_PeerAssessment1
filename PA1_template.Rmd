@@ -69,7 +69,8 @@ Calculating the number of NA values in steps for the activity DF:
 sum(is.na(activity$steps))
 ```
 
-
+Filling in the missing NA values.  The strategy for filling in the missing NA values
+is to use average values of the intervals calculated above.
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
