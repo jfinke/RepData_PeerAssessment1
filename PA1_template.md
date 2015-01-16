@@ -50,8 +50,34 @@ median(steps$steps)
 
 
 ## What is the average daily activity pattern?
+Aggregating data by intervals:
 
+```r
+steps2<-aggregate(steps ~ interval, data=activity, sum)
+```
+Averaging out over the number of days:
 
+```r
+steps2$stepsavg<-steps2$steps / nrow(steps)
+```
+
+Plotting the 
+
+Getting the max interval averaged out over all days:
+
+```r
+#stepsmax<-max(steps2$stepsavg)
+#filter(steps2, steps2$stepsavg==stepsmax)
+#intervalmax<-filter(steps2, steps2$stepsavg==stepsmax)
+#print(intervalmax)
+stepssorted<-steps2[order(steps2$stepsavg),]
+tail(stepssorted, n=1)
+```
+
+```
+##     interval steps stepsavg
+## 104      835 10927 206.1698
+```
 
 ## Imputing missing values
 

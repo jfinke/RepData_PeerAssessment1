@@ -80,6 +80,20 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 <div id="what-is-the-average-daily-activity-pattern" class="section level2">
 <h2>What is the average daily activity pattern?</h2>
+<p>Aggregating data by intervals:</p>
+<pre class="r"><code>steps2&lt;-aggregate(steps ~ interval, data=activity, sum)</code></pre>
+<p>Averaging out over the number of days:</p>
+<pre class="r"><code>steps2$stepsavg&lt;-steps2$steps / nrow(steps)</code></pre>
+<p>Plotting the</p>
+<p>Getting the max interval averaged out over all days:</p>
+<pre class="r"><code>#stepsmax&lt;-max(steps2$stepsavg)
+#filter(steps2, steps2$stepsavg==stepsmax)
+#intervalmax&lt;-filter(steps2, steps2$stepsavg==stepsmax)
+#print(intervalmax)
+stepssorted&lt;-steps2[order(steps2$stepsavg),]
+tail(stepssorted, n=1)</code></pre>
+<pre><code>##     interval steps stepsavg
+## 104      835 10927 206.1698</code></pre>
 </div>
 <div id="imputing-missing-values" class="section level2">
 <h2>Imputing missing values</h2>
