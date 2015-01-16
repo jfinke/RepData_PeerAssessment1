@@ -64,6 +64,11 @@ tail(stepssorted, n=1)
 ```
 
 ## Imputing missing values
+Calculating the number of NA values in steps for the activity DF:
+```{r}
+sum(is.na(activity$steps))
+```
+
 
 
 
