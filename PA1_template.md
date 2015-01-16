@@ -66,10 +66,6 @@ Plotting the
 Getting the max interval averaged out over all days:
 
 ```r
-#stepsmax<-max(steps2$stepsavg)
-#filter(steps2, steps2$stepsavg==stepsmax)
-#intervalmax<-filter(steps2, steps2$stepsavg==stepsmax)
-#print(intervalmax)
 stepssorted<-steps2[order(steps2$stepsavg),]
 tail(stepssorted, n=1)
 ```

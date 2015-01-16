@@ -86,11 +86,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <pre class="r"><code>steps2$stepsavg&lt;-steps2$steps / nrow(steps)</code></pre>
 <p>Plotting the</p>
 <p>Getting the max interval averaged out over all days:</p>
-<pre class="r"><code>#stepsmax&lt;-max(steps2$stepsavg)
-#filter(steps2, steps2$stepsavg==stepsmax)
-#intervalmax&lt;-filter(steps2, steps2$stepsavg==stepsmax)
-#print(intervalmax)
-stepssorted&lt;-steps2[order(steps2$stepsavg),]
+<pre class="r"><code>stepssorted&lt;-steps2[order(steps2$stepsavg),]
 tail(stepssorted, n=1)</code></pre>
 <pre><code>##     interval steps stepsavg
 ## 104      835 10927 206.1698</code></pre>
