@@ -61,7 +61,13 @@ Averaging out over the number of days:
 steps2$stepsavg<-steps2$steps / nrow(steps)
 ```
 
-Plotting the 
+Plotting the timeseries of the average daily activity:
+
+```r
+plot(x=steps2$interval, y=steps2$stepsavg, type="l", xlab="5 Minute Time Interval", ylab="Average Number of Steps", main="Average Number of Steps Taken\nAveraged Across All Days ")
+```
+
+![](./PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
 
 Getting the max interval averaged out over all days:
 
