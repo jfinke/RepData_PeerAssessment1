@@ -25,7 +25,7 @@ Using hist to graph a histogram of the number of steps:
 hist(steps$steps, main="Histogram of Steps", xlab="Steps")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![](figure/unnamed-chunk-3-1.png) 
 
 
 ## What is mean total number of steps taken per day?
@@ -67,7 +67,7 @@ Plotting the timeseries of the average daily activity:
 plot(x=steps2$interval, y=steps2$stepsavg, type="l", xlab="5 Minute Time Interval", ylab="Average Number of Steps", main="Average Number of Steps Taken\nAveraged Across All Days ")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
+![](figure/unnamed-chunk-8-1.png) 
 
 Getting the max interval averaged out over all days:
 
@@ -129,7 +129,7 @@ Using hist to graph a histogram of the number of steps:
 hist(steps3$steps, main="Histogram of Steps", xlab="Steps")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-15-1.png) 
+![](figure/unnamed-chunk-15-1.png) 
 
 Mean steps:
 
