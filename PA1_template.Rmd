@@ -1,8 +1,9 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
-output: 
+title: 'Reproducible Research: Peer Assessment 1'
+output:
   html_document:
-    keep_md: true
+    fig_caption: yes
+    keep_md: yes
 ---
 
 
@@ -123,3 +124,6 @@ median(steps3$steps)-median(steps$steps)
 ```
 
 ## Are there differences in activity patterns between weekdays and weekends?
+
+
+

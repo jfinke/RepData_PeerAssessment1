@@ -172,3 +172,6 @@ median(steps3$steps)-median(steps$steps)
 ```
 
 ## Are there differences in activity patterns between weekdays and weekends?
+
+
+
