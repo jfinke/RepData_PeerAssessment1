@@ -77,7 +77,10 @@ Merging the activity and steps2 dataframe into one new one:
 activity2<-merge(activity, steps2, by="interval")
 ```
 
-
+Subsituting the NAs with average values:
+```{r}
+activity2$steps.x[is.na(activity2$steps.x)]<-activity2$stepsavg[is.na(activity2$steps.x)]
+```
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
