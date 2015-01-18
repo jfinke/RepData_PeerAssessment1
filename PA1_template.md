@@ -82,7 +82,7 @@ tail(stepssorted, n=1)
 ```
 
 ## Imputing missing values
-Calculating the number of NA values in steps:
+Calculating the number of NA values in steps for the activity DF:
 
 ```r
 sum(is.na(activity$steps))
@@ -92,7 +92,83 @@ sum(is.na(activity$steps))
 ## [1] 2304
 ```
 
+Filling in the missing NA values.  The strategy for filling in the missing NA values
+is to use average values of the intervals calculated above.
+
+Merging the activity and steps2 dataframe into one new one:
+
+```r
+activity2<-merge(activity, steps2, by="interval")
+```
+
+Subsituting the NAs with average values:
+
+```r
+activity2$steps.x[is.na(activity2$steps.x)]<-activity2$stepsavg[is.na(activity2$steps.x)]
+```
+
+Cleaning up the dataframe
+
+```r
+activity2$steps.y<-NULL
+activity2$stepsavg<-NULL
+colnames(activity2)<-c("interval","steps","date")
+```
+## Repeating steps from above with new filled in dataframe
+Aggregating steps by date:
 
 
+```r
+steps3<-aggregate(steps ~ date, data=activity2, sum)
+```
+
+Using hist to graph a histogram of the number of steps:
+
+
+```r
+hist(steps3$steps, main="Histogram of Steps", xlab="Steps")
+```
+
+![](./PA1_template_files/figure-html/unnamed-chunk-15-1.png) 
+
+Mean steps:
+
+```r
+mean(steps3$steps)
+```
+
+```
+## [1] 10766.19
+```
+
+Median steps:
+
+```r
+median(steps3$steps)
+```
+
+```
+## [1] 10766.19
+```
+
+Differences between mean:
+
+```r
+mean(steps3$steps) - mean(steps$steps)
+```
+
+```
+## [1] 0
+```
+
+Differences between median:
+
+```r
+median(steps3$steps)-median(steps$steps)
+```
+
+```
+## [1] 1.188679
+```
 
 ## Are there differences in activity patterns between weekdays and weekends?

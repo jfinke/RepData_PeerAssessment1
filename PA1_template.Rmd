@@ -82,5 +82,44 @@ Subsituting the NAs with average values:
 activity2$steps.x[is.na(activity2$steps.x)]<-activity2$stepsavg[is.na(activity2$steps.x)]
 ```
 
+Cleaning up the dataframe
+```{r}
+activity2$steps.y<-NULL
+activity2$stepsavg<-NULL
+colnames(activity2)<-c("interval","steps","date")
+```
+## Repeating steps from above with new filled in dataframe
+Aggregating steps by date:
+
+```{r}
+steps3<-aggregate(steps ~ date, data=activity2, sum)
+````
+
+Using hist to graph a histogram of the number of steps:
+
+```{r}
+hist(steps3$steps, main="Histogram of Steps", xlab="Steps")
+
+```
+
+Mean steps:
+```{r}
+mean(steps3$steps)
+```
+
+Median steps:
+```{r}
+median(steps3$steps)
+```
+
+Differences between mean:
+```{r}
+mean(steps3$steps) - mean(steps$steps)
+```
+
+Differences between median:
+```{r}
+median(steps3$steps)-median(steps$steps)
+```
 
 ## Are there differences in activity patterns between weekdays and weekends?
