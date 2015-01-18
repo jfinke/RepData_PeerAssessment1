@@ -130,6 +130,11 @@ colnames(activity2)&lt;-c(&quot;interval&quot;,&quot;steps&quot;,&quot;date&quot
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>
+<p>Using built in R libraries to determine if the date is a weekday or weekend. Then adding that value to the dataframe and converting it to a factor value.</p>
+<pre class="r"><code>dow&lt;-weekdays(as.POSIXlt(activity2$date))
+ss&lt;-ifelse(dow == &quot;Saturday&quot; | dow == &quot;Sunday&quot;, &quot;weekend&quot;, &quot;weekday&quot;)
+activity2$day&lt;-ss
+activity2$day&lt;-factor(activity2$day)</code></pre>
 </div>
 
 

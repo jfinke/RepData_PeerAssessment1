@@ -173,5 +173,11 @@ median(steps3$steps)-median(steps$steps)
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
+Using built in R libraries to determine if the date is a weekday or weekend. Then adding that value to the dataframe and converting it to a factor value.
 
-
+```r
+dow<-weekdays(as.POSIXlt(activity2$date))
+ss<-ifelse(dow == "Saturday" | dow == "Sunday", "weekend", "weekday")
+activity2$day<-ss
+activity2$day<-factor(activity2$day)
+```
