@@ -141,3 +141,16 @@ library(plyr)
 steps4<-ddply(activity2, c("day","interval"), summarize, mean=mean(steps))
 ```
 
+Using the lattice library to draw a time series panel plot:
+```{r}
+library(lattice) 
+xyplot(mean ~ interval| day,
+       data = steps4,
+       type = "l",
+       xlab = "Interval",
+       ylab = "Number of steps",
+       main = "Number of steps averaged over\nintervals per weekend or weekday",
+       layout=c(1,2),)
+
+```
+

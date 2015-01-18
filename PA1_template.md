@@ -173,7 +173,7 @@ median(steps3$steps)-median(steps$steps)
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-Using built in R libraries to determine if the date is a weekday or weekend. Then adding that value to the dataframe and converting it to a factor value:
+Using built in R libraries to determine if the date is a weekday or weekend. Sunday and Saturday are defined as weekend days. Then adding that value to the dataframe and converting it to a factor value:
 
 ```r
 dow<-weekdays(as.POSIXlt(activity2$date))
@@ -182,10 +182,25 @@ activity2$day<-ss
 activity2$day<-factor(activity2$day)
 ```
 
-Using ddply to aggregate and mean the values per interval across the weekends and weekdays:
+Using ddply to aggregate and mean the steps per interval across the weekends and weekdays:
 
 ```r
 library(plyr)
 steps4<-ddply(activity2, c("day","interval"), summarize, mean=mean(steps))
 ```
+
+Using the lattice library to draw a time series panel plot:
+
+```r
+library(lattice) 
+xyplot(mean ~ interval| day,
+       data = steps4,
+       type = "l",
+       xlab = "Interval",
+       ylab = "Number of steps",
+       main = "Number of steps averaged over\nintervals per weekend or weekday",
+       layout=c(1,2),)
+```
+
+![](figure/unnamed-chunk-22-1.png) 
 
