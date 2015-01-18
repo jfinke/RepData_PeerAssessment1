@@ -72,5 +72,12 @@ sum(is.na(activity$steps))
 Filling in the missing NA values.  The strategy for filling in the missing NA values
 is to use average values of the intervals calculated above.
 
+Merging the activity and steps2 dataframe into one new one:
+```{r}
+activity2<-merge(activity, steps2, by="interval")
+```
+
+
+
 
 ## Are there differences in activity patterns between weekdays and weekends?
