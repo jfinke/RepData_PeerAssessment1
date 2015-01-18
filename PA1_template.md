@@ -18,11 +18,11 @@ steps<-aggregate(steps ~ date, data=activity, sum)
 ```
 
 ## Histogram of steps
-Using hist to graph a histogram of the number of steps:
+Using hist to graph a histogram of the number of steps with 20 breaks to get more fine grained:
 
 
 ```r
-hist(steps$steps, main="Histogram of Steps", xlab="Steps")
+hist(steps$steps, main="Histogram of Steps", xlab="Steps", breaks=20)
 ```
 
 ![](figure/unnamed-chunk-3-1.png) 
@@ -122,11 +122,11 @@ Aggregating steps by date:
 steps3<-aggregate(steps ~ date, data=activity2, sum)
 ```
 
-Using hist to graph a histogram of the number of steps:
+Using hist to graph a histogram of the number of steps with 20 breaks to get more fine grained:
 
 
 ```r
-hist(steps3$steps, main="Histogram of Steps", xlab="Steps")
+hist(steps3$steps, main="Histogram of Steps", xlab="Steps", breaks=20)
 ```
 
 ![](figure/unnamed-chunk-15-1.png) 
